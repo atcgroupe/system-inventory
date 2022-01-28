@@ -19,3 +19,7 @@ yarn-error.log
 ###> ide
 *.idea
 ###< ide
+
+###> docker
+/docker/
+###< docker
