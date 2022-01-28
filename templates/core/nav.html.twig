@@ -1,0 +1,34 @@
+{# main app navigation #}
+<nav
+    class="
+        w-full
+        fixed top-0
+        bg-gray-200
+        z-50
+    "
+>
+    {# Container #}
+    <div
+        class="
+            container max-w-screen-lg
+            mx-auto h-16
+            flex justify-between items-center"
+    >
+        {# Brand #}
+        <div>
+            <a href="{{ path('dashboard') }}">
+                <h1 class="text-2xl font-bold mb-0">ATC Groupe</h1>
+                <h2 class="-mt-2 font-light">System Inventory</h2>
+            </a>
+        </div>
+
+        {# Session #}
+        <div>
+            <ul>
+                <li class="rounded-full border border-gray-500 p-2">
+                    {{ app.user.displayName('initials') }}
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

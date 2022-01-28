@@ -1,0 +1,11 @@
+{# Core application template #}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ include('core/nav.html.twig') }}
+    <div class="container max-w-screen-lg mx-auto mt-16">
+        {% block main %}{% endblock %}
+    </div>
+    {{ include('core/footer.html.twig') }}
+{% endblock %}
