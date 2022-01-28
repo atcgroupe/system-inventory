@@ -41,9 +41,20 @@ final class User implements UserInterface
         return $this->email;
     }
 
-    public function getDisplayName(): string
+    public function getDisplayName(?string $mode = null): string
     {
-        return $this->displayName;
+        switch ($mode) {
+            case 'initials':
+                $explode = explode(' ', $this->getDisplayName());
+                $initials = '';
+                foreach ($explode as $item) {
+                    $initials .= substr($item, 0, 1);
+                }
+                return strtoupper($initials);
+
+            default:
+                return $this->displayName;
+        }
     }
 
     /**
