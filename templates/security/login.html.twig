@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+<form class="mx-auto w-full h-full flex items-center justify-center" method="post">
+    <div class="w-64">
+        {% if error %}
+            <div class="flex items-center p-4 mb-6 rounded-xl bg-red-200">
+                <i class="block text-2xl mr-2 fas fa-exclamation-triangle"></i>
+                <div>
+                    {{ error.messageKey|trans(error.messageData, 'security') }}
+                </div>
+            </div>
+        {% endif %}
+
+        <h1 class="text-4xl font-bold">ATC Groupe</h1>
+        <h2 class="h2 font-light mb-5">System inventory</h2>
+
+        <div class="mb-4">
+            <label class="block" for="inputUsername">Nom d'utilisateur</label>
+            <input
+                class="
+                    block w-full
+                    px-3 py-2
+                    border border-gray-400 rounded-xl
+                "
+                type="text"
+                value="{{ last_username }}"
+                name="_username"
+                id="inputUsername"
+                autocomplete="_username"
+                required autofocus
+            >
+        </div>
+
+        <div class="mb-6">
+            <label class="block" for="inputPassword">Mot de passe</label>
+            <input
+                class="
+                    block w-full
+                    px-3 py-2
+                    border border-gray-400 rounded-xl
+                "
+                type="password"
+                name="_password"
+                id="inputPassword"
+                autocomplete="current-password"
+                required
+            >
+        </div>
+
+        <input type="hidden" name="_csrf_token"
+               value="{{ csrf_token('authenticate') }}"
+        >
+
+        <button
+            class="w-full mx-auto py-2 border border-gray-500 rounded-xl"
+            type="submit"
+        >
+            Sign in
+        </button>
+    </div>
+</form>
+{% endblock %}
