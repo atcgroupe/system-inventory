@@ -1,0 +1,23 @@
+{% extends 'core/core.html.twig' %}
+
+{% block title %}Companies!{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('companies') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('companies') }}
+{% endblock %}
+
+{% block main %}
+    <h1 class="text-3xl">Companies</h1>
+
+    <menu class="w-full flex justify-end">
+        {{ include('component/a_button.html.twig', { href: path('companies_create'), text: 'Ajouter', icon: 'plus' }) }}
+    </menu>
+
+    <div id="companies"></div>
+{% endblock %}
