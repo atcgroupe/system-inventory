@@ -1,0 +1,25 @@
+<a
+    href="{{ href }}"
+    class="
+        flex
+        items-center justify-center
+        border border-gray-500
+        hover:ring-4 ring-gray-200 py-2 px-3
+        rounded
+        {% if class is defined %}{{ class }}{% endif %}
+    "
+    {% if id is defined %}{{ id }}{% endif %}
+>
+    {% if icon is defined %}
+        <i
+            class="
+                block
+                fas fa-{{ icon }}
+                mr-2
+                {% if iconClass is defined %}{{ iconClass }}{% endif %}
+            "
+        >
+        </i>
+    {% endif %}
+    {{ text }}
+</a>
