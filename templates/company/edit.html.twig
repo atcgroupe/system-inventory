@@ -1,0 +1,27 @@
+{% extends 'core/core.html.twig' %}
+
+{% block title %}Company{% endblock %}
+
+{% block main %}
+    {{ form_start(form, { attr: { 'novalidate': 'novalidate', 'class': 'max-w-screen-sm mx-auto' } }) }}
+
+        <h1 class="text-2xl text-center mb-4">
+            {% if company is defined %}Modifier{% else %}Ajouter{% endif %}
+            une companie
+        </h1>
+
+        {{ form_widget(form) }}
+
+        <div class="grid gap-4 grid-cols-2">
+            {{ include('component/button.html.twig', { text: 'Enregistrer' }) }}
+            {{ include('component/a_button.html.twig', { href: path('companies'), text: 'Annuler' }) }}
+        </div>
+
+        <div class="flex justify-between items-center">
+
+
+
+        </div>
+
+    {{ form_end(form) }}
+{% endblock %}
