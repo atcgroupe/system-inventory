@@ -14,12 +14,27 @@
             mx-auto h-16
             flex justify-between items-center"
     >
-        {# Brand #}
-        <div>
+
+        <div class="flex items-center">
+            {# Brand #}
             <a href="{{ path('dashboard') }}">
                 <h1 class="text-2xl font-bold mb-0">ATC Groupe</h1>
                 <h2 class="-mt-2 font-light">System Inventory</h2>
             </a>
+
+            <menu class="ml-6">
+                <a href="{{ path('device_home') }}" class="p-2 border mr-4 hover:border-gray-500 rounded-xl">
+                    Devices
+                </a>
+
+                <a href="{{ path('companies') }}" class="p-2 border mr-4 hover:border-gray-500 rounded-xl">
+                    Companies
+                </a>
+
+                <a href="{{ path('dashboard') }}" class="p-2 border mr-4 hover:border-gray-500 rounded-xl">
+                    Settings
+                </a>
+            </menu>
         </div>
 
         {# Session #}
