@@ -6,8 +6,11 @@ use App\Repository\CompanyRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CompanyRepository::class)]
+#[UniqueEntity('name')]
 class Company
 {
     #[ORM\Id]
@@ -16,6 +19,7 @@ class Company
     private $id;
 
     #[ORM\Column(type: 'string', length: 50)]
+    #[Assert\NotBlank]
     private $name;
 
     #[ORM\Column(type: 'boolean')]
@@ -47,6 +51,13 @@ class Company
         $this->devices = new ArrayCollection();
         $this->contacts = new ArrayCollection();
         $this->contracts = new ArrayCollection();
+
+        $this->setDefaults();
+    }
+
+    private function setDefaults()
+    {
+        $this->isActive = true;
     }
 
     public function getId(): ?int
